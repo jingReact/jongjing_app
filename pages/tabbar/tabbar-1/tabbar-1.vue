@@ -6,7 +6,7 @@
 
 <script setup>
    import {ref} from'vue'
-	const message=ref('首页页面1')
+	const message=ref('首页页面1111')
 </script>
 
 <style>
