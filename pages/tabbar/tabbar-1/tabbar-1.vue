@@ -14,6 +14,7 @@
 		console.log( getUserInfo,"=====");
 		getUserInfo().then((d)=>{ 
         console.log(d,999);
+		console.log($use,'$use');
 		})
 		
 	}
