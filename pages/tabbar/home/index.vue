@@ -1,6 +1,5 @@
 <template>
 	<view class="content">
-		<button @click="clickBtn">{{message}}</button>
 	</view>
 </template>
 
@@ -24,7 +23,10 @@
 <style>
 .content {
 	text-align: center;
-	height: 400upx;
-	margin-top: 200upx;
+	height: 100%;
+}
+uni-page-body,html,body{  
+            height: 100%;  
+	        background: linear-gradient(to bottom,#92bdf7,#f1f6ff);
 }
 </style>
