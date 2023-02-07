@@ -1,4 +1,5 @@
 <script>
+
 export default {
 	onLaunch: function() {
 		setTimeout(() => {
@@ -20,4 +21,7 @@ export default {
 
 <style>
 /*每个页面公共css */ 
+.van-cell {
+    margin-left: -9rpx;
+}
 </style>
