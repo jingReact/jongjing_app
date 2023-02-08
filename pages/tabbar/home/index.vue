@@ -36,7 +36,9 @@ const icons = reactive([
     path: "../Swq/Swq",
 
   },
-  { type: "../../../static/img/shuiwenji_icon.png", text: "水文计" },
+  { type: "../../../static/img/shuiwenji_icon.png", text: "水文计",
+  path: "../Swj/Swj",
+ },
 ]);
 function tableClick(i) {
   uni.navigateTo({
@@ -80,7 +82,7 @@ function tableClick(i) {
 uni-page-body,
 html,
 body {
-  height: 100%;
+  height: 98%;
   background: linear-gradient(to bottom, #92bdf7, #f1f6ff);
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <view class="content">
     <van-form @submit="onSubmit">
-      <view class="context_base">基本设置</view>
       <van-cell-group inset>
+		<view class="context_base">基本设置</view>
         <van-field
           v-model="yczList.SiteType"
           is-link
@@ -18,12 +18,12 @@
             @confirm="onSiteType"
           />
         </van-popup>
-
         <van-field
-          v-model="SiteNo"
+          v-model="yczList.SiteNo"
           name="站点编号"
+		  :rules="[{ validator: validatorSiteNo}]"
           label="站点编号"
-          placeholder="站点编号"
+          placeholder="站点编号(站点编号必须为10位数字)"
         />
         <van-field
           v-model="yczList.FloodSeasonMode"
@@ -35,7 +35,7 @@
         />
         <van-popup v-model:show="showSeasonMode" round position="bottom">
           <van-picker
-            :columns="SiteTypeList"
+            :columns="FloodSeasonModeList"
             @cancel="showSeasonMode = false"
             @confirm="TwoSiteType"
           />
@@ -51,7 +51,7 @@
         />
         <van-popup v-model:show="showAdditional" round position="bottom">
           <van-picker
-            :columns="SiteTypeList"
+            :columns="AdditionalMmodeList"
             @cancel="showAdditional = false"
             @confirm="threeSiteType"
           />
@@ -128,8 +128,8 @@
           autosize
           label="站点名称"
           type="textarea"
-          maxlength="60"
-          placeholder="请输入站点名称(最多52字节，31个汉字或62字母)"
+		  :rules="[{ validator: validatorSiteName}]"
+          placeholder="请输入站点名称(最多62字节，31个汉字或62字母)"
         />
         <view class="context_base info">数据设置</view>
         <van-field name="switch" label="信号强度上报" input-align="right">
@@ -153,16 +153,42 @@
 </template>
 <script setup>
 import { ref, reactive } from "vue";
-const result = ref("");
+import {strLength,numberLength} from  '@/utils/validator'
+const validatorSiteName = (val) => {
+	let unm=strLength(val)
+	if(unm>62){ 
+		return `您输入的不合法，请重新输入`;
+	}
+	
+}
+const validatorSiteNo = (val) => {
+	let unm=numberLength(val)
+	console.log(unm);
+	if(!unm){
+		return `站点编号必须为10位数字`;
+	}
+}
+const yczList = reactive({ checked: true,ClearHistorical:false });
 const showSiteType = ref(false);
 const showSeasonMode = ref(false);
 const showAdditional = ref(false);
-const yczList = reactive({ checked: true,ClearHistorical:false });
 const SiteTypeList = reactive([
   { text: "杭州", value: "Hangzhou" },
   { text: "宁波", value: "Ningbo" },
 ]);
-function onSiteType({ selectedOptions }, v) {
+const FloodSeasonModeList = reactive([
+  { text: "杭州", value: "Hangzhou" },
+  { text: "宁波", value: "Ningbo" },
+  { text: "上海", value: "Ningbo" },
+]);
+const AdditionalMmodeList = reactive([
+  { text: "杭州", value: "Hangzhou" },
+  { text: "宁波", value: "Ningbo" },
+  { text: "上海", value: "Ningbo" },
+  { text: "北京", value: "Ningbo" },
+]);
+
+function onSiteType({ selectedOptions }) {
   showSiteType.value = false;
   yczList.SiteType = selectedOptions[0].text;
   yczList.SiteTypeList = selectedOptions[0];
@@ -178,7 +204,7 @@ function threeSiteType({ selectedOptions }) {
   yczList.AdditionalMmodeList = selectedOptions[0];
 }
 function onSubmit() {
-  console.warn(yczList, "yczList");
+  console.warn(yczList);
 }
 </script>
 <style lang="scss">

@@ -1,8 +1,8 @@
 <template>
   <view class="content">
     <van-form @submit="onSubmit">
-      <view class="context_base">水文/水质相关传感器选择</view>
       <van-cell-group inset>
+      <view class="context_base">水文/水质相关传感器选择</view>
         <van-field
           v-model="yczList.SiteType"
           is-link
@@ -18,8 +18,6 @@
             @confirm="onSiteType"
           />
         </van-popup>
-
-       
         <van-field
           v-model="yczList.FloodSeasonMode"
           is-link
@@ -30,7 +28,7 @@
         />
         <van-popup v-model:show="showSeasonMode" round position="bottom">
           <van-picker
-            :columns="SiteTypeList"
+            :columns="showSeasonModeList"
             @cancel="showSeasonMode = false"
             @confirm="TwoSiteType"
           />
@@ -46,7 +44,6 @@
 </template>
 <script setup>
 import { ref, reactive } from "vue";
-const result = ref("");
 const showSiteType = ref(false);
 const showSeasonMode = ref(false);
 const yczList = reactive({});
@@ -54,6 +51,12 @@ const SiteTypeList = reactive([
   { text: "杭州", value: "Hangzhou" },
   { text: "宁波", value: "Ningbo" },
 ]);
+const showSeasonModeList = reactive([
+  { text: "杭州", value: "Hangzhou" },
+  { text: "宁波", value: "Ningbo" },
+  { text: "武汉", value: "Ningbo" },
+]);
+
 function onSiteType({ selectedOptions }, v) {
   showSiteType.value = false;
   yczList.SiteType = selectedOptions[0].text;
