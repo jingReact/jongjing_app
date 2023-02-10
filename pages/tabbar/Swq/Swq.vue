@@ -11,7 +11,7 @@
           label-width="110rpx"
         >
           <template #input>
-            <text class="stepper_text">分钟(采集周期0-1440)</text>
+            <text class="stepper_text">分钟(0-1440)</text>
             <van-stepper
               v-model="yczList.reportingPeriod"
               default-value="0"
@@ -31,12 +31,12 @@
           label-width="110rpx"
         >
           <template #input>
-            <text class="stepper_text">秒钟(范围0-255)</text>
+            <text class="stepper_text">秒钟(0-255)</text>
             <van-stepper
               v-model="yczList.reportingCJB"
               default-value="0"
               min="0"
-             max="255"
+              max="255"
               theme="round"
             />
           </template>
@@ -48,12 +48,13 @@
           placeholder="失败重试次数"
         >
           <template #input>
-            <text class="stepper_text">(采集失败重试次数)</text>
+            <text class="stepper_text">(重试次数0-255)</text>
             <van-stepper
               v-model="yczList.reportingXQF"
               default-value="0"
               min="0"
               theme="round"
+              max="255"
             />
           </template>
         </van-field>
@@ -64,11 +65,12 @@
           placeholder="故障滤波"
         >
           <template #input>
-            <text class="stepper_text">(超出后值无效)</text>
+            <text class="stepper_text">(无效0-255)</text>
             <van-stepper
               v-model="yczList.reportingCJZ"
               default-value="0"
               min="0"
+              max="255"
               theme="round"
             />
           </template>
@@ -99,6 +101,7 @@
               default-value="0"
               min="0"
               theme="round"
+              max="255"
             />
           </template>
         </van-field>
@@ -115,6 +118,7 @@
               default-value="0"
               min="0"
               theme="round"
+              max="255"
             />
           </template>
         </van-field>

@@ -11,16 +11,17 @@
           placeholder="m"
         >
           <template #input>
+          <text class="stepper_text">m</text>
             <van-stepper
               v-model="yczList.reportingPeriod"
               default-value="0"
               min="0"
-              step="0.1"
-              :decimal-length="1"
+              step="0.01"
+              max="99.99"
+              :decimal-length="2"
+              input-width="80rpx"
               theme="round"
             />
-            <text class="stepper_text">m&emsp;&emsp;&emsp;&emsp;</text>
-
           </template>
         </van-field>
         <van-field
@@ -30,15 +31,17 @@
           placeholder="m"
         >
           <template #input>
+            <text class="stepper_text">m(0：关闭)</text>
             <van-stepper
               v-model="yczList.reportingPeriod"
               default-value="0"
+              step="0.01"
+              max="99.99"
               min="0"
-              step="0.1"
-              :decimal-length="1"
+              :decimal-length="2"
+              input-width="80rpx"
               theme="round"
             />
-            <text class="stepper_text">m(0：关闭)</text>
           </template>
         </van-field>
         <view class="context_base info">窘井站点加报配置</view>
@@ -51,9 +54,11 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingPeriod"
-              default-value="0"
-              min="0"
+              min="1"
               theme="round"
+              max="1440"
+              :decimal-length="1"
+              input-width="80rpx"
             />
             <text class="stepper_text">分钟</text>
           </template>
@@ -68,30 +73,33 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingCJB"
-              default-value="0"
-              min="0"
+              min="1"
               theme="round"
+              max="1440"
+              :decimal-length="1"
+              input-width="80rpx"
             />
             <text class="stepper_text">分钟</text>
           </template>
         </van-field>
         <van-field
           v-model="yczList.reportingXQF"
-          label="报警水位"
+          label="报警水位1"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
               v-model="yczList.reportingXQF"
-              default-value="0"
-              min="0"
+              min="1"
               theme="round"
+              max="9999.99"
+              :decimal-length="2"
+              input-width="80rpx"
             />
             <text class="stepper_text">m &emsp;</text>
           </template>
         </van-field>
-
         <van-field
           v-model="yczList.reportingCJZ"
           label="定时报周期2"
@@ -101,15 +109,15 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingCJZ"
-              default-value="0"
-              min="0"
+              min="2"
               theme="round"
+              max="1440"
+              :decimal-length="1"
+              input-width="80rpx"
             />
             <text class="stepper_text">分钟</text>
           </template>
         </van-field>
-
-        
         <van-field
           v-model="yczList.reportingCJZ"
           label="定时报采集周期2"
@@ -119,9 +127,11 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingCJZ"
-              default-value="0"
-              min="0"
+              min="2"
               theme="round"
+              max="1440"
+              :decimal-length="1"
+              input-width="80rpx"
             />
             <text class="stepper_text">分钟</text>
           </template>
@@ -135,9 +145,11 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingXQF"
-              default-value="0"
-              min="0"
+              min="2"
               theme="round"
+              max="9999.99"
+              :decimal-length="2"
+              input-width="80rpx"
             />
             <text class="stepper_text">m&emsp;</text>
           </template>
@@ -151,9 +163,11 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingCJZ"
-              default-value="0"
-              min="0"
+              min="3"
               theme="round"
+              max="1440"
+              :decimal-length="1"
+              input-width="80rpx"
             />
             <text class="stepper_text">分钟</text>
           </template>
@@ -164,14 +178,15 @@
           input-align="right"
           placeholder="分钟"
           label-width="300rpx"
-
         >
           <template #input>
             <van-stepper
               v-model="yczList.reportingCJZ"
-              default-value="0"
-              min="0"
+              min="3"
               theme="round"
+              max="1440"
+              :decimal-length="1"
+              input-width="80rpx"
             />
             <text class="stepper_text">分钟</text>
           </template>
@@ -183,14 +198,14 @@
           input-align="right"
           placeholder="分钟"
           label-width="300rpx"
-
         >
           <template #input>
             <van-stepper
               v-model="yczList.reportingCJZ"
-              default-value="0"
-              min="0"
+              min="1"
               theme="round"
+              max="100"
+              input-width="80rpx"
             />
           </template>
         </van-field>
@@ -200,14 +215,14 @@
           input-align="right"
           placeholder="分钟"
           label-width="300rpx"
-
         >
           <template #input>
             <van-stepper
               v-model="yczList.reportingCJZ"
-              default-value="0"
               min="0"
               theme="round"
+              max="50"
+              input-width="80rpx"
             />
           </template>
         </van-field>
@@ -217,14 +232,14 @@
           input-align="right"
           placeholder="分钟"
           label-width="300rpx"
-
         >
           <template #input>
             <van-stepper
               v-model="yczList.reportingCJZ"
-              default-value="0"
               min="0"
               theme="round"
+              max="200"
+              input-width="80rpx"
             />
           </template>
         </van-field>
@@ -238,9 +253,11 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingXQF"
-              default-value="0"
-              min="0"
+              min="-9999.99"
               theme="round"
+              max="9999.99"
+              :decimal-length="2"
+              input-width="80rpx"
             />
             <text class="stepper_text">m</text>
           </template>
@@ -254,14 +271,15 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingXQF"
-              default-value="0"
-              min="0"
+              min="-9999.99"
               theme="round"
+              max="9999.99"
+              :decimal-length="2"
+              input-width="80rpx"
             />
             <text class="stepper_text">m</text>
           </template>
         </van-field>
-
         <van-field
           v-model="yczList.reportingXQF"
           label="管低高程"
@@ -271,14 +289,15 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingXQF"
-              default-value="0"
-              min="0"
+              min="-9999.99"
               theme="round"
+              max="9999.99"
+              :decimal-length="2"
+              input-width="80rpx"
             />
             <text class="stepper_text">m</text>
           </template>
         </van-field>
-        
         <van-field
           v-model="yczList.reportingXQF"
           label="盲补距离"
@@ -288,9 +307,11 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingXQF"
-              default-value="0"
-              min="0"
+              min="-99.99"
               theme="round"
+              max="99.99"
+              :decimal-length="2"
+              input-width="80rpx"
             />
             <text class="stepper_text">m</text>
           </template>
@@ -304,13 +325,27 @@
           <template #input>
             <van-stepper
               v-model="yczList.reportingXQF"
-              default-value="0"
-              min="0"
+              min="-99.99"
               theme="round"
+              max="99.99"
+              :decimal-length="2"
+              input-width="80rpx"
             />
             <text class="stepper_text">m</text>
           </template>
         </van-field>
+        <van-field
+          v-model="yczList.TelNumber"
+          name="用户名/站码"
+          label="用户名/站码"
+          placeholder="用户名/站码"
+        />
+        <van-field
+          v-model="yczList.password"
+          name="密码"
+          label="密码"
+          placeholder="密码"
+        />
       </van-cell-group>
       <div style="margin: 23rpx">
         <van-button round block type="primary" native-type="submit">
@@ -343,7 +378,7 @@ function onSubmit() {
   .stepper_text {
     color: #a8a8a8;
     display: inline-block;
-    margin-left: 16rpx;
+    margin-right: 10rpx;
   }
 }
 </style>

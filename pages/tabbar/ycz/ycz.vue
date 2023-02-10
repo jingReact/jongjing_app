@@ -2,7 +2,7 @@
   <view class="content">
     <van-form @submit="onSubmit">
       <van-cell-group inset>
-		<view class="context_base">基本设置</view>
+        <view class="context_base">基本设置</view>
         <van-field
           v-model="yczList.SiteType"
           is-link
@@ -13,18 +13,19 @@
         />
         <van-popup v-model:show="showSiteType" round position="bottom">
           <van-picker
-            :columns="SiteTypeList"
+            :columns="AllData.YzcSiteTypeList"
             @cancel="showSiteType = false"
             @confirm="onSiteType"
           />
         </van-popup>
         <van-field
-          v-model="yczList.SiteNo"
+          v-model="yczList.TelNumber"
           name="站点编号"
-		  :rules="[{ validator: validatorSiteNo}]"
+          :rules="[{ validator: validatorSiteNo }]"
           label="站点编号"
           placeholder="站点编号(站点编号必须为10位数字)"
         />
+
         <van-field
           v-model="yczList.FloodSeasonMode"
           is-link
@@ -35,7 +36,7 @@
         />
         <van-popup v-model:show="showSeasonMode" round position="bottom">
           <van-picker
-            :columns="FloodSeasonModeList"
+            :columns="AllData.FloodSeasonModeList"
             @cancel="showSeasonMode = false"
             @confirm="TwoSiteType"
           />
@@ -51,7 +52,7 @@
         />
         <van-popup v-model:show="showAdditional" round position="bottom">
           <van-picker
-            :columns="AdditionalMmodeList"
+            :columns="AllData.AdditionalMmodeList"
             @cancel="showAdditional = false"
             @confirm="threeSiteType"
           />
@@ -67,6 +68,7 @@
               v-model="yczList.reportingPeriod"
               default-value="0"
               min="0"
+              max="1440"
               theme="round"
             />
             <text class="stepper_text">分钟</text>
@@ -84,6 +86,7 @@
               v-model="yczList.reportingCJB"
               default-value="0"
               min="0"
+              max="1440"
               theme="round"
             />
             <text class="stepper_text">分钟</text>
@@ -100,6 +103,7 @@
               v-model="yczList.reportingXQF"
               default-value="0"
               min="0"
+              max="60"
               theme="round"
             />
             <text class="stepper_text">分钟</text>
@@ -118,6 +122,7 @@
               default-value="0"
               min="0"
               theme="round"
+              max="60"
             />
             <text class="stepper_text">分钟</text>
           </template>
@@ -128,7 +133,7 @@
           autosize
           label="站点名称"
           type="textarea"
-		  :rules="[{ validator: validatorSiteName}]"
+          :rules="[{ validator: validatorSiteName }]"
           placeholder="请输入站点名称(最多62字节，31个汉字或62字母)"
         />
         <view class="context_base info">数据设置</view>
@@ -139,7 +144,11 @@
         </van-field>
         <van-field name="switch" label="清楚历史数据" input-align="right">
           <template #input>
-            <van-switch  active-color="#ee0a24" v-model="yczList.ClearHistorical" size="20" />
+            <van-switch
+              active-color="#ee0a24"
+              v-model="yczList.ClearHistorical"
+              size="20"
+            />
           </template>
         </van-field>
       </van-cell-group>
@@ -152,46 +161,45 @@
   </view>
 </template>
 <script setup>
-import { ref, reactive } from "vue";
-import {strLength,numberLength} from  '@/utils/validator'
+import { ref, reactive, onMounted } from "vue";
+import { strLength, numberLength } from "@/utils/validator";
+import { AllData } from "@/utils/Hexadecimal";
+import { UseGetDataForZiJie } from "@/utils/analysis";
+onMounted(() => {
+  //16进制转换
+  AllData.Data_form.forEach((element, index) => {
+    let HexadecimalList = UseGetDataForZiJie(element, AllData);
+    index + 1 >= HexadecimalList.length
+      ? console.log(HexadecimalList, 3333)
+      : "";
+  });
+});
+//站点 编号验证
+//#region
 const validatorSiteName = (val) => {
-	let unm=strLength(val)
-	if(unm>62){ 
-		return `您输入的不合法，请重新输入`;
-	}
-	
-}
+  let unm = strLength(val);
+  if (unm > 62) {
+    return `您输入的不合法，请重新输入`;
+  }
+};
 const validatorSiteNo = (val) => {
-	let unm=numberLength(val)
-	console.log(unm);
-	if(!unm){
-		return `站点编号必须为10位数字`;
-	}
-}
-const yczList = reactive({ checked: true,ClearHistorical:false });
+  let unm = numberLength(val);
+  console.log(unm);
+  if (!unm) {
+    return `站点编号必须为10位数字`;
+  }
+};
+//#endregion
+//下拉数据方法 咳根据下拉数据进行优化
+//#region
+const yczList = reactive({ checked: true, ClearHistorical: false });
 const showSiteType = ref(false);
 const showSeasonMode = ref(false);
 const showAdditional = ref(false);
-const SiteTypeList = reactive([
-  { text: "杭州", value: "Hangzhou" },
-  { text: "宁波", value: "Ningbo" },
-]);
-const FloodSeasonModeList = reactive([
-  { text: "杭州", value: "Hangzhou" },
-  { text: "宁波", value: "Ningbo" },
-  { text: "上海", value: "Ningbo" },
-]);
-const AdditionalMmodeList = reactive([
-  { text: "杭州", value: "Hangzhou" },
-  { text: "宁波", value: "Ningbo" },
-  { text: "上海", value: "Ningbo" },
-  { text: "北京", value: "Ningbo" },
-]);
-
 function onSiteType({ selectedOptions }) {
   showSiteType.value = false;
   yczList.SiteType = selectedOptions[0].text;
-  yczList.SiteTypeList = selectedOptions[0];
+  yczList.YzcSiteTypeList = selectedOptions[0];
 }
 function TwoSiteType({ selectedOptions }) {
   showSeasonMode.value = false;
@@ -203,6 +211,8 @@ function threeSiteType({ selectedOptions }) {
   yczList.AdditionalMmode = selectedOptions[0].text;
   yczList.AdditionalMmodeList = selectedOptions[0];
 }
+//#endregion
+//提交
 function onSubmit() {
   console.warn(yczList);
 }

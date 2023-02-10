@@ -1,3 +1,11 @@
+<!--
+ * @Author: liyingjing 1147991367@qq.com
+ * @Date: 2023-02-07 09:45:01
+ * @LastEditors: liyingjing 1147991367@qq.com
+ * @LastEditTime: 2023-02-10 14:42:15
+ * @FilePath: \jiongshui_app\pages\tabbar\home\index.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
   <view class="content">
     <uni-card v-for="i in icons" :key="i.type" class="card">
@@ -32,12 +40,13 @@ const icons = reactive([
   },
   {
     type: "../../../static/img/shuiwenchuanganqi_icon.png",
-    text: "水纹传感器通性设置",
+    text: "水文传感器通性设置",
     path: "../Swq/Swq",
 
   },
-  { type: "../../../static/img/shuiwenji_icon.png", text: "水文计",
-  path: "../Swj/Swj",
+  { type: "../../../static/img/shuiwenji_icon.png", 
+    text: "水位计设置",
+    path: "../Swj/Swj",
  },
 ]);
 function tableClick(i) {

@@ -2,7 +2,7 @@
   <view class="content">
     <van-form @submit="onSubmit">
       <van-cell-group inset>
-      <view class="context_base">水文/水质相关传感器选择</view>
+        <view class="context_base">水文/水质相关传感器选择</view>
         <van-field
           v-model="yczList.SiteType"
           is-link
@@ -13,7 +13,7 @@
         />
         <van-popup v-model:show="showSiteType" round position="bottom">
           <van-picker
-            :columns="SiteTypeList"
+            :columns="AllData.SiteTypeList"
             @cancel="showSiteType = false"
             @confirm="onSiteType"
           />
@@ -28,12 +28,12 @@
         />
         <van-popup v-model:show="showSeasonMode" round position="bottom">
           <van-picker
-            :columns="showSeasonModeList"
+            :columns="AllData.SiteTypeList"
             @cancel="showSeasonMode = false"
             @confirm="TwoSiteType"
           />
         </van-popup>
-</van-cell-group>
+      </van-cell-group>
       <div style="margin-top: 123rpx">
         <van-button round block type="primary" native-type="submit">
           保存配置
@@ -44,19 +44,10 @@
 </template>
 <script setup>
 import { ref, reactive } from "vue";
+import { AllData } from "@/utils/Hexadecimal";
 const showSiteType = ref(false);
 const showSeasonMode = ref(false);
 const yczList = reactive({});
-const SiteTypeList = reactive([
-  { text: "杭州", value: "Hangzhou" },
-  { text: "宁波", value: "Ningbo" },
-]);
-const showSeasonModeList = reactive([
-  { text: "杭州", value: "Hangzhou" },
-  { text: "宁波", value: "Ningbo" },
-  { text: "武汉", value: "Ningbo" },
-]);
-
 function onSiteType({ selectedOptions }, v) {
   showSiteType.value = false;
   yczList.SiteType = selectedOptions[0].text;
