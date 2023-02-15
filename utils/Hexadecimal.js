@@ -50,10 +50,12 @@ export const AllData = reactive({
     { text: "TC-FMCR15F雷达水位计", value: "16" },
   ],
   DataKey: 0,
-  Data16: `6E7AA8A5303132333435363738396162636465666700D5A2C7B000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00`,
+  // Data16: `6E7AA8A5303132333435363738396162636465666700D5A2C7B000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00`,
   //字节数组数据
+  Data16: `true`,
   DataZijie: [],
-  Data_form: [{
+  Data_form: [
+    {
       name: "ID",
       nameZn: "ID",
       type: "u",
@@ -61,13 +63,63 @@ export const AllData = reactive({
       value: "",
       analysis: true,
     },
+    //自定义数据
+    {
+      name: "SiteType",
+      nameZn: "SiteType",
+      type: "u",
+      num: 32,
+      value: "",
+      analysis: true,
+    },
+    {
+      name: "FloodSeasonMode",
+      nameZn: "FloodSeasonMode",
+      type: "u",
+      num: 32,
+      value: "",
+      analysis: true,
+    },
+    {
+      name: "AdditionalMmode",
+      nameZn: "AdditionalMmode",
+      type: "u",
+      num: 32,
+      value: "",
+      analysis: true,
+    },
+    {
+      name: "reportingPeriod",
+      nameZn: "reportingPeriod",
+      type: "u",
+      num: 32,
+      value: "",
+      analysis: true,
+    },
+    {
+      name: "reportingCJB",
+      nameZn: "reportingCJB",
+      type: "u",
+      num: 32,
+      value: "",
+      analysis: true,
+    },
+    {
+      name: "reportingXQF",
+      nameZn: "reportingXQF",
+      type: "u",
+      num: 32,
+      value: "",
+      analysis: true,
+    },
+     //自定义数据结束
     {
       name: "TelName",
       nameZn: "遥测站名字",
       type: "char",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: true,
     },
     {
       name: "ThisPhone",
@@ -75,7 +127,7 @@ export const AllData = reactive({
       type: "char",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ThisSMSNumber",
@@ -83,7 +135,7 @@ export const AllData = reactive({
       type: "char",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ServerIP",
@@ -91,7 +143,7 @@ export const AllData = reactive({
       type: "char",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ServerPort",
@@ -99,7 +151,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
 
     {
@@ -108,7 +160,7 @@ export const AllData = reactive({
       type: "u",
       num: 40,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "AlarmTime",
@@ -116,7 +168,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TeleType",
@@ -124,7 +176,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CommMessageProtocolIndex",
@@ -132,7 +184,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "StandbyServerPort",
@@ -140,7 +192,7 @@ export const AllData = reactive({
       type: "u",
       num: 192,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ServerConfig",
@@ -148,7 +200,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "InsideDTU_Type",
@@ -156,7 +208,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "HourCycle",
@@ -164,7 +216,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "HourCycle",
@@ -172,7 +224,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevelHight",
@@ -180,7 +232,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevelHAlarm",
@@ -188,7 +240,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevelLAlarm",
@@ -196,7 +248,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevelAlarmH",
@@ -204,7 +256,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevelAlarmL",
@@ -212,7 +264,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterBaseLevel",
@@ -220,7 +272,7 @@ export const AllData = reactive({
       type: "s",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterCorrectionLevel",
@@ -228,7 +280,7 @@ export const AllData = reactive({
       type: "s",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterCorrParame",
@@ -236,7 +288,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterCorrParame",
@@ -244,7 +296,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ManualSetRand",
@@ -252,7 +304,7 @@ export const AllData = reactive({
       type: "u",
       num: 80,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TimeCycle",
@@ -260,7 +312,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "res32",
@@ -268,7 +320,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "LZX1_K",
@@ -276,7 +328,7 @@ export const AllData = reactive({
       type: "u",
       num: 96,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "LZX1_X",
@@ -284,7 +336,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TimeCollCycle",
@@ -292,7 +344,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "I4_Data",
@@ -300,7 +352,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "I20_Data",
@@ -308,7 +360,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Camera_Hours",
@@ -316,7 +368,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ServerOtherConfig",
@@ -324,7 +376,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "OtherConfig",
@@ -332,7 +384,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "LongitudeCompe",
@@ -340,7 +392,7 @@ export const AllData = reactive({
       type: "int",
       num: 4,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "LatitudinalCompe",
@@ -348,7 +400,7 @@ export const AllData = reactive({
       type: "int",
       num: 4,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EDHight",
@@ -356,7 +408,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EDRange",
@@ -364,7 +416,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EDMinAddWater",
@@ -372,7 +424,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SSMHight",
@@ -380,7 +432,7 @@ export const AllData = reactive({
       type: "u",
       num: 256,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SSMRange",
@@ -388,7 +440,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SSMRange",
@@ -396,7 +448,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SlaveParameter",
@@ -404,7 +456,7 @@ export const AllData = reactive({
       type: "u",
       num: 144,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WQCorrParame",
@@ -412,7 +464,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
 
     {
@@ -421,7 +473,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EXTDTU_UpFREQ",
@@ -429,7 +481,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EXTDTU_DownFREQ",
@@ -437,7 +489,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "StartYear",
@@ -445,7 +497,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Startmonth",
@@ -453,7 +505,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "StartDate",
@@ -461,7 +513,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RS485_CH1_WarmTime",
@@ -469,7 +521,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RS485_CH3_WarmTime",
@@ -477,7 +529,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RS485_CH2_WarmTime",
@@ -485,7 +537,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "REV_WARM_TIME",
@@ -493,7 +545,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterQuality_Cycle",
@@ -501,7 +553,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Meather_Cycle",
@@ -509,7 +561,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Camera_Cycle",
@@ -517,7 +569,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WQCorrParame",
@@ -525,7 +577,7 @@ export const AllData = reactive({
       type: "u",
       num: 80,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ManualSet",
@@ -533,7 +585,7 @@ export const AllData = reactive({
       type: "s",
       num: 80,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "InsideDTU_Lora_KEY",
@@ -541,7 +593,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "InsideDTU_Lora_ADD",
@@ -549,7 +601,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ServerPassward",
@@ -557,7 +609,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "I4_20_Offset",
@@ -565,7 +617,7 @@ export const AllData = reactive({
       type: "s",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "I4_20_Parame",
@@ -573,7 +625,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "InsFlowHeight",
@@ -581,7 +633,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "InsFlowCV",
@@ -589,7 +641,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FlowSlotSedim",
@@ -597,7 +649,7 @@ export const AllData = reactive({
       type: "u",
       num: 96,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FlowSlotParameter",
@@ -605,7 +657,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FilterTimes_J",
@@ -613,7 +665,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FlowPipDir",
@@ -621,7 +673,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FlowDirection",
@@ -629,7 +681,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TURBHeight",
@@ -637,7 +689,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FilterRange",
@@ -645,7 +697,7 @@ export const AllData = reactive({
       type: "u",
       num: 28,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FilterTimes_S",
@@ -653,7 +705,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "rev8",
@@ -661,7 +713,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FilterThreshold",
@@ -669,7 +721,7 @@ export const AllData = reactive({
       type: "u",
       num: 48,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FlowDrect_WLValve",
@@ -677,7 +729,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FlowDrect_FLValve[",
@@ -685,7 +737,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FlowDrect_HoldCnt",
@@ -693,7 +745,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Reserve16",
@@ -701,7 +753,7 @@ export const AllData = reactive({
       type: "u",
       num: 48,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ServiceID",
@@ -709,7 +761,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterQuality_Enable",
@@ -717,7 +769,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WLRevise",
@@ -725,7 +777,7 @@ export const AllData = reactive({
       type: "s",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Meather_Enable",
@@ -733,7 +785,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevel_Addr",
@@ -741,7 +793,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SSM_Addr",
@@ -749,7 +801,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ED_Addr",
@@ -757,7 +809,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
 
     {
@@ -766,7 +818,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "HNO3_Addr",
@@ -774,7 +826,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CHLA_Addr",
@@ -782,7 +834,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ALGAE_Addr",
@@ -790,7 +842,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "REDOX_Addr",
@@ -798,7 +850,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " COD_Addr",
@@ -806,7 +858,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "res9",
@@ -814,7 +866,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Pressure_Addr",
@@ -822,7 +874,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Wind_Add",
@@ -830,7 +882,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "AirTempHump_Addr",
@@ -838,7 +890,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "DO_Addr",
@@ -846,7 +898,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "GateLevel_Addr",
@@ -854,7 +906,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "COND_Addr",
@@ -862,7 +914,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Radiation_Addr",
@@ -870,7 +922,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "PM25_Addr",
@@ -878,7 +930,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SoilMois_Addr",
@@ -886,7 +938,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterFlow_Addr",
@@ -894,7 +946,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Tra_Addr",
@@ -902,7 +954,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "PH_Add",
@@ -910,7 +962,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterTemp_Addr",
@@ -918,7 +970,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Camera_Addr",
@@ -926,7 +978,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "res8",
@@ -934,7 +986,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "BOD_Add",
@@ -942,7 +994,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "OIW_Addr",
@@ -950,7 +1002,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CL_Addr",
@@ -958,7 +1010,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WQCorrParameSelect",
@@ -966,7 +1018,7 @@ export const AllData = reactive({
       type: "u",
       num: 40,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " RS485_CH1_Retry",
@@ -974,7 +1026,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RS485_CH3_Retry",
@@ -982,7 +1034,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RS485_CH2_Retry",
@@ -990,7 +1042,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevel_Enable",
@@ -998,7 +1050,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "oilMois_Enable",
@@ -1006,7 +1058,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterFlow_Enable;",
@@ -1014,7 +1066,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " res8_5",
@@ -1022,7 +1074,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Camera_Enable",
@@ -1030,7 +1082,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CumlFlow_Enable;",
@@ -1038,7 +1090,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "GateLevel_Enable;",
@@ -1046,7 +1098,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SendFlag",
@@ -1054,7 +1106,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SSM_Enable",
@@ -1062,7 +1114,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TURB_Add",
@@ -1070,7 +1122,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SQ_Addr",
@@ -1078,7 +1130,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TN_Addr",
@@ -1086,7 +1138,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TP_Addr",
@@ -1094,7 +1146,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "REV_ENABLE",
@@ -1102,7 +1154,7 @@ export const AllData = reactive({
       type: "u",
       num: 72,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RainAlarm",
@@ -1110,7 +1162,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RainTimeReport_Enable",
@@ -1118,7 +1170,7 @@ export const AllData = reactive({
       type: "bool",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RainRes",
@@ -1126,7 +1178,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CentralAddr",
@@ -1134,7 +1186,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "VoltageAlarm",
@@ -1142,7 +1194,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "VoltageProte",
@@ -1150,7 +1202,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
 
 
@@ -1160,7 +1212,7 @@ export const AllData = reactive({
       type: "char",
       num: 22,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ConfigStr1",
@@ -1168,7 +1220,7 @@ export const AllData = reactive({
       type: "char",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ManualSetSelect",
@@ -1176,7 +1228,7 @@ export const AllData = reactive({
       type: "u",
       num: 40,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " res8_4",
@@ -1184,7 +1236,7 @@ export const AllData = reactive({
       type: "u",
       num: 48,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "HeartbeatTime",
@@ -1192,7 +1244,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "es8_6",
@@ -1200,7 +1252,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " Camera_TimeSlot",
@@ -1208,7 +1260,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "res8_2",
@@ -1216,7 +1268,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevelChangeAlarm",
@@ -1224,7 +1276,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "res899",
@@ -1232,7 +1284,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WorkingMode",
@@ -1240,7 +1292,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "DoorAlarmTime",
@@ -1248,7 +1300,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " res8_10",
@@ -1256,7 +1308,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " res8_9",
@@ -1264,7 +1316,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EnableTiming",
@@ -1272,7 +1324,7 @@ export const AllData = reactive({
       type: "bool",
       num: 1,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " Camera_PicAck",
@@ -1280,7 +1332,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "PicPackSendDelay",
@@ -1288,7 +1340,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " res8_0",
@@ -1296,7 +1348,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "VpnPoint",
@@ -1304,7 +1356,7 @@ export const AllData = reactive({
       type: "char",
       num: 34,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "VpnName",
@@ -1312,7 +1364,7 @@ export const AllData = reactive({
       type: "u",
       num: 34,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "VpnPassword",
@@ -1320,7 +1372,7 @@ export const AllData = reactive({
       type: "u",
       num: 34,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "VpnEnable",
@@ -1328,7 +1380,7 @@ export const AllData = reactive({
       type: "bool",
       num: 1,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RemoteVpnEnable",
@@ -1336,7 +1388,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "BODSelect",
@@ -1344,7 +1396,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "DomainEnable",
@@ -1352,7 +1404,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Domain",
@@ -1360,7 +1412,7 @@ export const AllData = reactive({
       type: "char",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "DitchType",
@@ -1368,7 +1420,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FlowUnit",
@@ -1376,7 +1428,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FlowChanRes",
@@ -1384,7 +1436,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevelSensor",
@@ -1392,7 +1444,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterTempSensor",
@@ -1400,7 +1452,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "FaultFilter",
@@ -1408,7 +1460,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "OIWSelect",
@@ -1416,7 +1468,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CLSelect",
@@ -1424,7 +1476,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "es8_3",
@@ -1432,7 +1484,7 @@ export const AllData = reactive({
       type: "u",
       num: 40,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterLevelDeviceSelect",
@@ -1440,7 +1492,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterFlowDeviceSelect",
@@ -1448,7 +1500,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CamerDeviceSelect",
@@ -1456,7 +1508,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "DODeviceSelect",
@@ -1464,7 +1516,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CODDeviceSelect",
@@ -1472,7 +1524,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CONDDeviceSelect",
@@ -1480,7 +1532,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "PHDeviceSelect",
@@ -1488,7 +1540,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TempHumSelect",
@@ -1496,7 +1548,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterTempSelect",
@@ -1504,7 +1556,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "GateLevelDeviceSelect",
@@ -1512,7 +1564,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "PressureSelect",
@@ -1520,7 +1572,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WindSelect",
@@ -1528,7 +1580,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "RadiationSelect",
@@ -1536,7 +1588,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "res8_7",
@@ -1544,7 +1596,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SoilMoistureSelect",
@@ -1552,7 +1604,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "REDOXSelect",
@@ -1560,7 +1612,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "NH4NSelect",
@@ -1568,7 +1620,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "HNO3Select",
@@ -1576,7 +1628,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "CHLASelect",
@@ -1584,7 +1636,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ALGAESelect",
@@ -1592,7 +1644,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ServerPassward",
@@ -1600,7 +1652,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EDSelect",
@@ -1608,7 +1660,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SSMSelect",
@@ -1616,7 +1668,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TURBDeviceSelect",
@@ -1624,7 +1676,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SQDeviceSelect",
@@ -1632,7 +1684,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "PM25DeviceSelect",
@@ -1640,7 +1692,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TNSelect",
@@ -1648,7 +1700,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TPSelect",
@@ -1656,7 +1708,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TraSelect",
@@ -1664,7 +1716,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Reserve8_2",
@@ -1672,7 +1724,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "InstFlowAccuSelect",
@@ -1680,7 +1732,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ExtAlarmTime",
@@ -1688,7 +1740,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
 
 
@@ -1698,7 +1750,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WaterFlowLevelSelect",
@@ -1706,7 +1758,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EXTDTU_Select",
@@ -1714,7 +1766,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "NBIOT_Enable",
@@ -1722,7 +1774,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "NBIOT_Mode",
@@ -1730,7 +1782,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EDWaterLevelSelect",
@@ -1738,7 +1790,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "TURBTestWaterLevelSelect",
@@ -1746,7 +1798,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SlaveAddr",
@@ -1754,7 +1806,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SlaveEnable",
@@ -1762,7 +1814,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SlaveDeviceSelect",
@@ -1770,7 +1822,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "SoilTempSelect",
@@ -1778,7 +1830,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "GTPSelect",
@@ -1786,7 +1838,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "EXTDTU_LoRa_JOINEUI",
@@ -1794,7 +1846,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " InsideDTU_Lora_NID",
@@ -1802,7 +1854,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: " WGX5_Gain",
@@ -1810,7 +1862,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WGX6_NP",
@@ -1818,7 +1870,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WGX6_PO",
@@ -1826,7 +1878,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "InsideDTU_Lora_NUM",
@@ -1834,7 +1886,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ThresholdCollCycle",
@@ -1842,7 +1894,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "ThresholdAlarmCycle",
@@ -1850,7 +1902,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "AlarmCollCycle",
@@ -1858,7 +1910,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "AlarmCycle",
@@ -1866,7 +1918,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "es8_1",
@@ -1874,7 +1926,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "WLBase",
@@ -1882,7 +1934,7 @@ export const AllData = reactive({
       type: "s",
       num: 64,
       value: "",
-      analysis: true,
+     analysis: false,
     },
     {
       name: "Reserve8_3",
@@ -1890,7 +1942,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-      analysis: true,
+     analysis: false,
     },
   ]
 })

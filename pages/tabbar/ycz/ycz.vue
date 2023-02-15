@@ -19,7 +19,7 @@
           />
         </van-popup>
         <van-field
-          v-model="yczList.TelNumber"
+          v-model="yczList.TelName"
           name="站点编号"
           :rules="[{ validator: validatorSiteNo }]"
           label="站点编号"
@@ -139,7 +139,7 @@
         <view class="context_base info">数据设置</view>
         <van-field name="switch" label="信号强度上报" input-align="right">
           <template #input>
-            <van-switch v-model="yczList.checked" size="20" />
+            <van-switch v-model="yczList.ClearHistorical" size="20" />
           </template>
         </van-field>
         <van-field name="switch" label="清楚历史数据" input-align="right">
@@ -164,15 +164,19 @@
 import { ref, reactive, onMounted } from "vue";
 import { strLength, numberLength } from "@/utils/validator";
 import { AllData } from "@/utils/Hexadecimal";
-import { UseGetDataForZiJie } from "@/utils/analysis";
+import { UseGetDataForZiJie, stringToHex } from "@/utils/analysis";
 onMounted(() => {
   //16进制转换
   AllData.Data_form.forEach((element, index) => {
-    let HexadecimalList = UseGetDataForZiJie(element, AllData);
-    index + 1 >= HexadecimalList.length
-      ? console.log(HexadecimalList, 3333)
-      : "";
+    let data = UseGetDataForZiJie(element, AllData);
+    if (data) {
+      HexadecimalLists.array = data;
+      data.forEach((i) => {
+        Object.assign(yczList, { [i.name]: i.value });
+      });
+    }
   });
+  console.log(HexadecimalLists.array, "HexadecimalList");
 });
 //站点 编号验证
 //#region
@@ -184,7 +188,6 @@ const validatorSiteName = (val) => {
 };
 const validatorSiteNo = (val) => {
   let unm = numberLength(val);
-  console.log(unm);
   if (!unm) {
     return `站点编号必须为10位数字`;
   }
@@ -193,28 +196,37 @@ const validatorSiteNo = (val) => {
 //下拉数据方法 咳根据下拉数据进行优化
 //#region
 const yczList = reactive({ checked: true, ClearHistorical: false });
+const HexadecimalLists = reactive({ array: [] });
 const showSiteType = ref(false);
 const showSeasonMode = ref(false);
 const showAdditional = ref(false);
 function onSiteType({ selectedOptions }) {
   showSiteType.value = false;
   yczList.SiteType = selectedOptions[0].text;
-  yczList.YzcSiteTypeList = selectedOptions[0];
 }
 function TwoSiteType({ selectedOptions }) {
   showSeasonMode.value = false;
   yczList.FloodSeasonMode = selectedOptions[0].text;
-  yczList.FloodSeasonModeList = selectedOptions[0];
 }
 function threeSiteType({ selectedOptions }) {
   showAdditional.value = false;
   yczList.AdditionalMmode = selectedOptions[0].text;
-  yczList.AdditionalMmodeList = selectedOptions[0];
 }
 //#endregion
 //提交
 function onSubmit() {
-  console.warn(yczList);
+  let array1 = "";
+  console.log(yczList, "yczList");
+  HexadecimalLists.array.forEach((i) => {
+    Object.keys(yczList).forEach((n) => {
+      if (n === i.name) {
+        array1 += stringToHex("" + yczList[n]);
+      } else {
+        array1 += i.value ? i.value : "";
+      }
+    });
+    console.log(array1, "array1");
+  });
 }
 </script>
 <style lang="scss">

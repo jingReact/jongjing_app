@@ -132,10 +132,36 @@
   </view>
 </template>
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive,onMounted } from "vue";
+import { AllData } from "@/utils/Hexadecimal";
+import { UseGetDataForZiJie, stringToHex} from "@/utils/analysis";
+onMounted(() => {
+  //16进制转换
+  AllData.Data_form.forEach((element, index) => {
+    let data = UseGetDataForZiJie(element, AllData);
+    if (data) {
+      HexadecimalLists.array = data;
+      data.forEach((i) => {
+        Object.assign(yczList, { [i.name]: i.value });
+      });
+    }
+  });
+});
+const HexadecimalLists = reactive({ array: [] });
 const yczList = reactive({ checked: true,ClearHistorical:false });
 function onSubmit() {
-  console.warn(yczList, "yczList");
+  let array1 = "";
+  console.log(yczList, "yczList");
+  HexadecimalLists.array.forEach((i) => {
+    Object.keys(yczList).forEach((n) => {
+      if (n === i.name) {
+        array1 += stringToHex("" + yczList[n]);
+      } else {
+        array1 += i.value ? i.value : "";
+      }
+    });
+    console.log(array1, "array1");
+  });
 }
 </script>
 <style lang="scss">
