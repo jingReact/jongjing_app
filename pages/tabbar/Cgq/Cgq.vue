@@ -6,7 +6,6 @@
         <van-field
           v-model="yczList.SiteType"
           is-link
-          readonly
           label="水位计1"
           placeholder="选择水位计1"
           @click="showSiteType = true"
@@ -21,7 +20,6 @@
         <van-field
           v-model="yczList.FloodSeasonMode"
           is-link
-          readonly
           label="水位计2"
           placeholder="选择站汛期模式"
           @click="showSeasonMode = true"
@@ -44,12 +42,16 @@
 </template>
 <script setup>
 import { ref, reactive ,onMounted} from "vue";
-import { AllData } from "@/utils/Hexadecimal";
+// import { AllData } from "@/utils/Hexadecimal";
 import { UseGetDataForZiJie, stringToHex } from "@/utils/analysis";
-onMounted(() => {
+import { onLoad } from "@dcloudio/uni-app";
+
+onLoad((option) => {
   //16进制转换
-  AllData.Data_form.forEach((element, index) => {
-    let data = UseGetDataForZiJie(element, AllData);
+  let array=JSON.parse(option.AllData)
+
+  array.Data_form.forEach((element, index) => {
+    let data = UseGetDataForZiJie(element, array);
     if (data) {
       HexadecimalLists.array = data;
       data.forEach((i) => {
@@ -57,7 +59,7 @@ onMounted(() => {
       });
     }
   });
-  console.log(HexadecimalLists.array, "HexadecimalList");
+  console.log(yczList, "yczList");
 });
 const HexadecimalLists = reactive({ array: [] });
 const showSiteType = ref(false);

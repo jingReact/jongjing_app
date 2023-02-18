@@ -1,7 +1,7 @@
 <script>
 
 export default {
-	onLaunch: function() {
+	onLaunch() {
 		setTimeout(() => {
 			uni.setTabBarBadge({
 				index: 1,
@@ -12,9 +12,9 @@ export default {
 			});
 		}, 1000);
 	},
-	onShow: function() {
+	onShow() {
 	},
-	onHide: function() {
+	onHide() {
 	}
 };
 </script>

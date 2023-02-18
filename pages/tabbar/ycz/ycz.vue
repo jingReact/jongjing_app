@@ -4,22 +4,20 @@
       <van-cell-group inset>
         <view class="context_base">基本设置</view>
         <van-field
-          v-model="yczList.SiteType"
-          is-link
-          readonly
+          v-model="yczList.TeleType"
           label="站点类型"
           placeholder="选择站点类型"
-          @click="showSiteType = true"
+          @click="showTeleType = true"
         />
-        <van-popup v-model:show="showSiteType" round position="bottom">
+        <van-popup v-model:show="showTeleType" round position="bottom">
           <van-picker
-            :columns="AllData.YzcSiteTypeList"
-            @cancel="showSiteType = false"
-            @confirm="onSiteType"
+            :columns="AllData.YzcTeleTypeList"
+            @cancel="showTeleType = false"
+            @confirm="onTeleType"
           />
         </van-popup>
         <van-field
-          v-model="yczList.TelName"
+          v-model="yczList.TelNumber"
           name="站点编号"
           :rules="[{ validator: validatorSiteNo }]"
           label="站点编号"
@@ -27,9 +25,7 @@
         />
 
         <van-field
-          v-model="yczList.FloodSeasonMode"
-          is-link
-          readonly
+          v-model="yczList.sendflag1"
           label="汛期模式"
           placeholder="选择站汛期模式"
           @click="showSeasonMode = true"
@@ -38,14 +34,13 @@
           <van-picker
             :columns="AllData.FloodSeasonModeList"
             @cancel="showSeasonMode = false"
-            @confirm="TwoSiteType"
+            @confirm="TwoTeleType"
           />
         </van-popup>
 
         <van-field
-          v-model="yczList.AdditionalMmode"
+          v-model="yczList.sendflag2"
           is-link
-          readonly
           label="加报模式"
           placeholder="选择站加报模式"
           @click="showAdditional = true"
@@ -54,18 +49,18 @@
           <van-picker
             :columns="AllData.AdditionalMmodeList"
             @cancel="showAdditional = false"
-            @confirm="threeSiteType"
+            @confirm="threeTeleType"
           />
         </van-popup>
         <van-field
-          v-model="yczList.reportingPeriod"
+          v-model="yczList.TimeCycle"
           label="定时报周期"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.reportingPeriod"
+              v-model="yczList.rTimeCycle"
               default-value="0"
               min="0"
               max="1440"
@@ -75,15 +70,15 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.reportingCJB"
+          v-model="yczList.TimeCollCycle"
           label="定时报采集周期"
           input-align="right"
           placeholder="分钟"
-          label-width="300rpx"
+          label-width="200rpx"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.reportingCJB"
+              v-model="yczList.TimeCollCycle"
               default-value="0"
               min="0"
               max="1440"
@@ -93,14 +88,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.reportingXQF"
+          v-model="yczList.AlarmCycle"
           label="汛期发送周期"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.reportingXQF"
+              v-model="yczList.AlarmCycle"
               default-value="0"
               min="0"
               max="60"
@@ -111,14 +106,14 @@
         </van-field>
 
         <van-field
-          v-model="yczList.reportingCJZ"
+          v-model="yczList.AlarmCollCycle"
           label="汛期采集周期"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.reportingCJZ"
+              v-model="yczList.AlarmCollCycle"
               default-value="0"
               min="0"
               theme="round"
@@ -128,12 +123,12 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.SiteName"
+          v-model="yczList.TelName"
           rows="3"
           autosize
           label="站点名称"
           type="textarea"
-          :rules="[{ validator: validatorSiteName }]"
+          :rules="[{ validator: validatorTelName}]"
           placeholder="请输入站点名称(最多62字节，31个汉字或62字母)"
         />
         <view class="context_base info">数据设置</view>
@@ -142,7 +137,7 @@
             <van-switch v-model="yczList.ClearHistorical" size="20" />
           </template>
         </van-field>
-        <van-field name="switch" label="清楚历史数据" input-align="right">
+        <van-field name="switch" label="清除历史数据" input-align="right">
           <template #input>
             <van-switch
               active-color="#ee0a24"
@@ -161,26 +156,16 @@
   </view>
 </template>
 <script setup>
-import { ref, reactive, onMounted } from "vue";
+
+// import  {AllData}  from "@/utils/Hexadecimal";
+import { ref, reactive, onMounted ,onBeforeUnmount} from "vue";
 import { strLength, numberLength } from "@/utils/validator";
-import { AllData } from "@/utils/Hexadecimal";
-import { UseGetDataForZiJie, stringToHex } from "@/utils/analysis";
-onMounted(() => {
-  //16进制转换
-  AllData.Data_form.forEach((element, index) => {
-    let data = UseGetDataForZiJie(element, AllData);
-    if (data) {
-      HexadecimalLists.array = data;
-      data.forEach((i) => {
-        Object.assign(yczList, { [i.name]: i.value });
-      });
-    }
-  });
-  console.log(HexadecimalLists.array, "HexadecimalList");
-});
+import { UseGetDataForZiJie, stringToHex ,hex2bin} from "@/utils/analysis";
+import { onLoad } from "@dcloudio/uni-app";
 //站点 编号验证
 //#region
-const validatorSiteName = (val) => {
+
+const validatorTelName  = (val) => {
   let unm = strLength(val);
   if (unm > 62) {
     return `您输入的不合法，请重新输入`;
@@ -195,29 +180,29 @@ const validatorSiteNo = (val) => {
 //#endregion
 //下拉数据方法 咳根据下拉数据进行优化
 //#region
-const yczList = reactive({ checked: true, ClearHistorical: false });
-const HexadecimalLists = reactive({ array: [] });
-const showSiteType = ref(false);
-const showSeasonMode = ref(false);
-const showAdditional = ref(false);
-function onSiteType({ selectedOptions }) {
-  showSiteType.value = false;
-  yczList.SiteType = selectedOptions[0].text;
+let senFlgList=ref()
+let  yczList = reactive({ checked: true, ClearHistorical: false });
+let  HexadecimalLists = reactive({ });
+let  showTeleType = ref(false);
+let showSeasonMode = ref(false);
+let showAdditional = ref(false);
+function onTeleType({ selectedOptions }) {
+  showTeleType.value = false;
+  yczList.TeleType = selectedOptions[0].text;
 }
-function TwoSiteType({ selectedOptions }) {
+function TwoTeleType({ selectedOptions }) {
   showSeasonMode.value = false;
-  yczList.FloodSeasonMode = selectedOptions[0].text;
+  yczList.sendflag1 = selectedOptions[0].text;
 }
-function threeSiteType({ selectedOptions }) {
+function threeTeleType({ selectedOptions }) {
   showAdditional.value = false;
-  yczList.AdditionalMmode = selectedOptions[0].text;
+  yczList.sendflag2 = selectedOptions[0].text;
 }
 //#endregion
 //提交
 function onSubmit() {
   let array1 = "";
-  console.log(yczList, "yczList");
-  HexadecimalLists.array.forEach((i) => {
+  HexadecimalLists.forEach((i) => {
     Object.keys(yczList).forEach((n) => {
       if (n === i.name) {
         array1 += stringToHex("" + yczList[n]);
@@ -228,6 +213,34 @@ function onSubmit() {
     console.log(array1, "array1");
   });
 }
+onLoad((option) => {
+  let array=JSON.parse(option.AllData)
+  array.Data_form.forEach((element, index) => {
+    let data = UseGetDataForZiJie(element, array);
+    if (data) {
+      HexadecimalLists = data;
+      data.forEach((i) => {
+        Object.assign(yczList, { [i.name]: i.value });
+      });
+    }
+
+  });
+  //16进制转化为2进制 进行处理显示
+let senFlgList=hex2bin(yczList.SendFlag)
+let array1=senFlgList.substring(senFlgList.length-1,senFlgList.length)
+let array2=senFlgList.substring(senFlgList.length-2,senFlgList.length-1)
+  let sed1=array.FloodSeasonModeList.filter((i)=>{ 
+   return i.value==array1
+  })
+  let sed2=array.AdditionalMmodeList.filter((i)=>{ 
+   return i.value==array2
+  })
+  yczList.sendflag1=sed1[0].text
+  yczList.sendflag2=sed2[0].text
+});
+// console.log(yczList,'TeleTypeTeleType');
+console.dir(yczList,'TeleTypeTeleType');
+
 </script>
 <style lang="scss">
 .content {

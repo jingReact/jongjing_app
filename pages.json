@@ -30,6 +30,12 @@
 			"style": {
 				"navigationBarTitleText": "水文计"
 			}
+		},
+		{
+			"path": "pages/tabbar/tsms/tsms",
+			"style": {
+				"navigationBarTitleText": "调试模式"
+			}
 		}
 	],
 	"globalStyle": {

@@ -2,6 +2,7 @@ import {
   reactive
 } from 'vue'
 export const AllData = reactive({
+ Data16: `6E7AA8A500A1CFAACEB2CBAEBFE23200C3F7BDD8CEDBD5A2C7B000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF003836313338303038313835303000FF003131322E3039342E3036372E313138003131322E3039342E3036372E313138003030302E3030302E3030302E303030003030302E3030302E3030302E303030003034372E3039372E3033352E30333300234E234E00000000BB040000000000050B00000000000000000000000000000000000000000000000000000011000000000000000000000000000000000000000000000000000000000000000A000000000000000000000000000000000000001027000010270000000000000000000000000500FFFFFFFFE803E803E803E803E803E80300000500A00F0000A00F0000204E0000204E000000000000E1FFFFFF131000000000000000000000F4010000BC0200002C0100000000000000000000000000000000000000000000000000000000000000000000E803000000000000000000000000000000000000000000000000000000000000E707020003000A001E000A00FFFFFFFFFFFF050005007800E803E803E803E803E80300000000000000000000686803003412341234123412000000001027102700000000E803E803000000006400640064006400640064000000000000000000000000000000000000000011000000000000000000000000000000000000000000009101000000000000000001021E1F202122232425010A1817160915EB0B0E0D071415161718191A1B08090A0A0B0C0D0E0F101101021F060A0102F33FFFFF20212211111111110505050100000100000001000304050101FFFFFFFFFFFFFFFFFF00010210101000730000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFF001E1E1E1E1E0000FFFFFFFF78FFFF00FFFFFFFF0000FF0000000102010104FF00636D6E657400FFFFFFFFFFFFFFFFFFFF00636D6E657400FFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000200FFFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000003A8D967133A00FFFFFFFFFFFFFFFF000000000073657665723100FFFFFFFFFFFFFFFF0073657665723300FFFFFFFFFFFFFFFF0073657665723300FFFFFFFFFFFFFFFF0073657665723200FFFFFFFFFFFFFFFF000202010101000000030303000005FFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000000000FF000000000500000000000000000001010100000000000000000000000000005823230A0A0505010F05013C0F0105050000000000000000000000000000000000D1EA`,
   FloodSeasonModeList:[
     { text: "汛期", value: "1" },
     { text: "非汛期", value: "0" },
@@ -10,7 +11,7 @@ export const AllData = reactive({
     { text: "手动模式", value: "0" },
     { text: "阙值加报模式", value: "1" },
   ],
-  YzcSiteTypeList:[
+  YzcTeleTypeList:[
     { text: "降水", value: 0 },
     { text: "河道", value: 1 },
     { text: "水库（湖泊）", value: 2 },
@@ -32,9 +33,7 @@ export const AllData = reactive({
     { text: "WGX20-A-1激光水位计", value: "0" },
     { text: "XF-WQX80-气泡位计", value: "1" },
     { text: "XF-WYZ-1压力水位计", value: "2" },
-    { text: "420mA压力水位计", value: 
-    
-    "3" },
+    { text: "420mA压力水位计", value: "3" },
     { text: "420mA雷达水位计", value: "4" },
     { text: "YLN-YQS气泡位计", value: "5" },
     { text: "WT-WTZ-1雷达水位计", value: "6" },
@@ -50,9 +49,9 @@ export const AllData = reactive({
     { text: "TC-FMCR15F雷达水位计", value: "16" },
   ],
   DataKey: 0,
+  // Data16: `0001`,
   // Data16: `6E7AA8A5303132333435363738396162636465666700D5A2C7B000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00`,
   //字节数组数据
-  Data16: `true`,
   DataZijie: [],
   Data_form: [
     {
@@ -63,56 +62,7 @@ export const AllData = reactive({
       value: "",
       analysis: true,
     },
-    //自定义数据
-    {
-      name: "SiteType",
-      nameZn: "SiteType",
-      type: "u",
-      num: 32,
-      value: "",
-      analysis: true,
-    },
-    {
-      name: "FloodSeasonMode",
-      nameZn: "FloodSeasonMode",
-      type: "u",
-      num: 32,
-      value: "",
-      analysis: true,
-    },
-    {
-      name: "AdditionalMmode",
-      nameZn: "AdditionalMmode",
-      type: "u",
-      num: 32,
-      value: "",
-      analysis: true,
-    },
-    {
-      name: "reportingPeriod",
-      nameZn: "reportingPeriod",
-      type: "u",
-      num: 32,
-      value: "",
-      analysis: true,
-    },
-    {
-      name: "reportingCJB",
-      nameZn: "reportingCJB",
-      type: "u",
-      num: 32,
-      value: "",
-      analysis: true,
-    },
-    {
-      name: "reportingXQF",
-      nameZn: "reportingXQF",
-      type: "u",
-      num: 32,
-      value: "",
-      analysis: true,
-    },
-     //自定义数据结束
+    
     {
       name: "TelName",
       nameZn: "遥测站名字",
@@ -160,7 +110,7 @@ export const AllData = reactive({
       type: "u",
       num: 40,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "AlarmTime",
@@ -176,7 +126,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "CommMessageProtocolIndex",
@@ -240,7 +190,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "WaterLevelLAlarm",
@@ -248,7 +198,7 @@ export const AllData = reactive({
       type: "u",
       num: 64,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "WaterLevelAlarmH",
@@ -256,7 +206,7 @@ export const AllData = reactive({
       type: "u",
       num: 32,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "WaterLevelAlarmL",
@@ -312,7 +262,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "res32",
@@ -344,7 +294,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "I4_Data",
@@ -473,7 +423,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "EXTDTU_UpFREQ",
@@ -529,7 +479,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "RS485_CH2_WarmTime",
@@ -553,7 +503,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "Meather_Cycle",
@@ -777,7 +727,7 @@ export const AllData = reactive({
       type: "s",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "Meather_Enable",
@@ -793,7 +743,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "SSM_Addr",
@@ -1034,7 +984,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "RS485_CH2_Retry",
@@ -1050,7 +1000,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "oilMois_Enable",
@@ -1106,7 +1056,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "SSM_Enable",
@@ -1212,7 +1162,7 @@ export const AllData = reactive({
       type: "char",
       num: 22,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "ConfigStr1",
@@ -1220,7 +1170,7 @@ export const AllData = reactive({
       type: "char",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "ManualSetSelect",
@@ -1276,7 +1226,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "res899",
@@ -1460,7 +1410,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "OIWSelect",
@@ -1492,7 +1442,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "WaterFlowDeviceSelect",
@@ -1862,7 +1812,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "WGX6_NP",
@@ -1870,7 +1820,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "WGX6_PO",
@@ -1878,7 +1828,7 @@ export const AllData = reactive({
       type: "u",
       num: 16,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "InsideDTU_Lora_NUM",
@@ -1894,7 +1844,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "ThresholdAlarmCycle",
@@ -1902,7 +1852,7 @@ export const AllData = reactive({
       type: "u",
       num: 24,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "AlarmCollCycle",
@@ -1910,7 +1860,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "AlarmCycle",
@@ -1918,7 +1868,7 @@ export const AllData = reactive({
       type: "u",
       num: 8,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "es8_1",
@@ -1934,7 +1884,7 @@ export const AllData = reactive({
       type: "s",
       num: 64,
       value: "",
-     analysis: false,
+     analysis: true,
     },
     {
       name: "Reserve8_3",
@@ -1946,3 +1896,4 @@ export const AllData = reactive({
     },
   ]
 })
+
