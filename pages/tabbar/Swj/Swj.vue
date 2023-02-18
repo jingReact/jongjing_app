@@ -5,7 +5,7 @@
       <view class="context_base">河道站点加报配置
       </view>
       <van-field
-          v-model="yczList.WaterLevelAlarmH"
+          v-model="yczList.reportingPeriod"
           label="加报上阈值"
           input-align="right"
           placeholder="m"
@@ -13,7 +13,7 @@
           <template #input>
           <text class="stepper_text">m</text>
             <van-stepper
-              v-model="yczList.WaterLevelAlarmH"
+              v-model="yczList.reportingPeriod"
               default-value="0"
               min="0"
               step="0.01"
@@ -25,7 +25,7 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.WaterLevelChangeAlarm"
+          v-model="yczList.reportingPeriod1"
           label="变幅加报"
           input-align="right"
           placeholder="m"
@@ -33,7 +33,7 @@
           <template #input>
             <text class="stepper_text">m(0：关闭)</text>
             <van-stepper
-              v-model="yczList.WaterLevelChangeAlarm"
+              v-model="yczList.reportingPeriod"
               default-value="0"
               step="0.01"
               max="99.99"
@@ -46,14 +46,14 @@
         </van-field>
         <view class="context_base info">窘井站点加报配置</view>
         <van-field
-          v-model="yczList.ThresholdAlarmCycle"
+          v-model="yczList.reportingPeriod"
           label="加报报周期1"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.ThresholdAlarmCycle"
+              v-model="yczList.reportingPeriod"
               min="1"
               theme="round"
               max="1440"
@@ -64,7 +64,7 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.ThresholdCollCycle1"
+          v-model="yczList.reportingCJB"
           label="加报报报采集周期1"
           input-align="right"
           placeholder="分钟"
@@ -72,7 +72,7 @@
         >
           <template #input>
             <van-stepper
-              v-model="yczList.ThresholdCollCycle1"
+              v-model="yczList.reportingCJB"
               min="1"
               theme="round"
               max="1440"
@@ -83,14 +83,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.WaterLevelHAlarm"
+          v-model="yczList.reportingXQF"
           label="报警水位1"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WaterLevelHAlarm"
+              v-model="yczList.reportingXQF"
               min="1"
               theme="round"
               max="9999.99"
@@ -101,14 +101,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.ThresholdAlarmCycle"
+          v-model="yczList.reportingCJZ"
           label="定时报周期2"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.ThresholdAlarmCycle2"
+              v-model="yczList.reportingCJZ"
               min="2"
               theme="round"
               max="1440"
@@ -119,14 +119,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.ThresholdCollCycle"
+          v-model="yczList.reportingCJZ"
           label="定时报采集周期2"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.ThresholdCollCycle2"
+              v-model="yczList.reportingCJZ"
               min="2"
               theme="round"
               max="1440"
@@ -137,14 +137,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.WaterLevelLAlarm"
+          v-model="yczList.reportingXQF"
           label="报警水位2"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WaterLevelLAlarm"
+              v-model="yczList.reportingXQF"
               min="2"
               theme="round"
               max="9999.99"
@@ -155,14 +155,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.ThresholdAlarmCycle"
+          v-model="yczList.reportingCJZ"
           label="定时报周期3"
           input-align="right"
           placeholder="分钟"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.ThresholdAlarmCycle"
+              v-model="yczList.reportingCJZ"
               min="3"
               theme="round"
               max="1440"
@@ -173,7 +173,7 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.ThresholdCollCycle3"
+          v-model="yczList.reportingCJZ"
           label="定时报采集周期3"
           input-align="right"
           placeholder="分钟"
@@ -181,7 +181,7 @@
         >
           <template #input>
             <van-stepper
-              v-model="yczList.ThresholdCollCycle3"
+              v-model="yczList.reportingCJZ"
               min="3"
               theme="round"
               max="1440"
@@ -193,7 +193,7 @@
         </van-field>
         <view class="context_base info">WGN5/WGN6配置</view>
         <van-field
-          v-model="yczList.WGX5_Gain"
+          v-model="yczList.reportingCJZ"
           label="小雷达增益"
           input-align="right"
           placeholder="分钟"
@@ -201,7 +201,7 @@
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WGX5_Gain"
+              v-model="yczList.reportingCJZ"
               min="1"
               theme="round"
               max="100"
@@ -210,7 +210,7 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.WGX6_PO"
+          v-model="yczList.reportingCJZ"
           label="大雷达功率"
           input-align="right"
           placeholder="分钟"
@@ -218,7 +218,7 @@
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WGX6_PO"
+              v-model="yczList.reportingCJZ"
               min="0"
               theme="round"
               max="50"
@@ -227,7 +227,7 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.WGX6_NP"
+          v-model="yczList.reportingCJZ"
           label="大雷达NP"
           input-align="right"
           placeholder="分钟"
@@ -235,7 +235,7 @@
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WGX6_NP"
+              v-model="yczList.reportingCJZ"
               min="0"
               theme="round"
               max="200"
@@ -245,14 +245,14 @@
         </van-field>
         <view class="context_base info">窘井水位计设置</view>
         <van-field
-          v-model="yczList.WLBase"
+          v-model="yczList.reportingXQF"
           label="井盖高程"
           input-align="right"
           placeholder="m"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WLBase"
+              v-model="yczList.reportingXQF"
               min="-9999.99"
               theme="round"
               max="9999.99"
@@ -263,14 +263,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.WLBase"
+          v-model="yczList.reportingXQF"
           label="井低高程"
           input-align="right"
           placeholder="m"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WLBase"
+              v-model="yczList.reportingXQF"
               min="-9999.99"
               theme="round"
               max="9999.99"
@@ -281,14 +281,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.WLBase"
+          v-model="yczList.reportingXQF"
           label="管低高程"
           input-align="right"
           placeholder="m"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WLBase"
+              v-model="yczList.reportingXQF"
               min="-9999.99"
               theme="round"
               max="9999.99"
@@ -299,14 +299,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.WLA"
+          v-model="yczList.reportingXQF"
           label="盲补距离"
           input-align="right"
           placeholder="m"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WLA"
+              v-model="yczList.reportingXQF"
               min="-99.99"
               theme="round"
               max="99.99"
@@ -317,14 +317,14 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.WLRevise"
+          v-model="yczList.reportingXQF"
           label="修正值"
           input-align="right"
           placeholder="m"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WLRevise"
+              v-model="yczList.reportingXQF"
               min="-99.99"
               theme="round"
               max="99.99"
@@ -335,13 +335,13 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.ConfigStr0"
+          v-model="yczList.TelNumber"
           name="用户名/站码"
           label="用户名/站码"
           placeholder="用户名/站码"
         />
         <van-field
-          v-model="yczList.ConfigStr1"
+          v-model="yczList.password"
           name="密码"
           label="密码"
           placeholder="密码"
@@ -358,13 +358,11 @@
 <script setup>
 import { ref, reactive,onMounted } from "vue";
 import { AllData } from "@/utils/Hexadecimal";
-import { onLoad } from "@dcloudio/uni-app";
 import { UseGetDataForZiJie, stringToHex } from "@/utils/analysis";
-onLoad((option) => {
+onMounted(() => {
   //16进制转换
-  let array=JSON.parse(option.AllData)
-  array.Data_form.forEach((element, index) => {
-    let data = UseGetDataForZiJie(element, array);
+  AllData.Data_form.forEach((element, index) => {
+    let data = UseGetDataForZiJie(element, AllData);
     if (data) {
       HexadecimalLists.array = data;
       data.forEach((i) => {

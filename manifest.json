@@ -1,5 +1,5 @@
 {
-    "name" : "yinjin",
+    "name" : "uni-app3",
     "appid" : "__UNI__60DF0A3",
     "description" : "",
     "versionName" : "1.0.0",
@@ -30,32 +30,10 @@
                     "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
                     "<uses-feature android:name=\"android.hardware.camera\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-                ],
-                "minSdkVersion" : 21,
-                "abiFilters" : [ "armeabi-v7a", "x86" ]
+                ]
             },
-            "ios" : {
-                "dSYMs" : false
-            },
-            "sdkConfigs" : {
-                "ad" : {}
-            }
-        },
-        "nativePlugins" : {
-            "liuyy-guangpai" : {
-                "__plugin_info__" : {
-                    "name" : "广排运维appTCP插件",
-                    "description" : "海康视频监控",
-                    "platforms" : "Android",
-                    "url" : "",
-                    "android_package_name" : "",
-                    "ios_bundle_id" : "",
-                    "isCloud" : false,
-                    "bought" : -1,
-                    "pid" : "",
-                    "parameters" : {}
-                }
-            }
+            "ios" : {},
+            "sdkConfigs" : {}
         }
     },
     "quickapp" : {},
@@ -69,12 +47,12 @@
     "vueVersion" : "3",
     "h5" : {
         "title" : "h5",
-        "devServer" : {
-            "proxy" : {
-                "/logistics" : {
-                    "target" : "http://101.34.73.225:9999"
-                }
-            }
-        }
+		"devServer":{
+			"proxy":{
+				"/logistics":{
+					"target":"http://101.34.73.225:9999"
+				}
+			}
+		}
     }
 }

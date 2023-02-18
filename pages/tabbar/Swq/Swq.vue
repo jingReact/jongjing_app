@@ -4,7 +4,7 @@
       <van-cell-group inset>
       <view class="context_base">传感器采集间隔时间设置</view>
         <van-field
-          v-model="yczList.WaterQuality_Cycle"
+          v-model="yczList.reportingPeriod"
           label="采集周期"
           input-align="right"
           placeholder="分钟"
@@ -13,7 +13,7 @@
           <template #input>
             <text class="stepper_text">分钟(0-1440)</text>
             <van-stepper
-              v-model="yczList.WaterQuality_Cycle"
+              v-model="yczList.reportingPeriod"
               default-value="0"
               min="0"
               max="1440"
@@ -24,7 +24,7 @@
         <!-- 采集通信设置 -->
         <view class="context_base info">采集通信设置</view>
         <van-field
-          v-model="yczList.RS485_CH3_WarmTime"
+          v-model="yczList.reportingCJB"
           label="预热时间"
           input-align="right"
           placeholder="分钟"
@@ -33,7 +33,7 @@
           <template #input>
             <text class="stepper_text">秒钟(0-255)</text>
             <van-stepper
-              v-model="yczList.RS485_CH3_WarmTime"
+              v-model="yczList.reportingCJB"
               default-value="0"
               min="0"
               max="255"
@@ -42,7 +42,7 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.RS485_CH3_Retry"
+          v-model="yczList.reportingXQF"
           label="失败重试"
           input-align="right"
           placeholder="失败重试次数"
@@ -50,7 +50,7 @@
           <template #input>
             <text class="stepper_text">(重试次数0-255)</text>
             <van-stepper
-              v-model="yczList.RS485_CH3_Retry"
+              v-model="yczList.reportingXQF"
               default-value="0"
               min="0"
               theme="round"
@@ -59,7 +59,7 @@
           </template>
         </van-field>
         <van-field
-          v-model="yczList.FaultFilter"
+          v-model="yczList.reportingCJZ"
           label="故障滤波"
           input-align="right"
           placeholder="故障滤波"
@@ -67,7 +67,7 @@
           <template #input>
             <text class="stepper_text">(无效0-255)</text>
             <van-stepper
-              v-model="yczList.FaultFilter"
+              v-model="yczList.reportingCJZ"
               default-value="0"
               min="0"
               max="255"
@@ -79,25 +79,25 @@
       <view class="context_base info">传感器开关设置</view>
         <van-field name="switch" label="水位计1" input-align="right">
           <template #input>
-            <van-switch v-model="yczList.WaterLevel_Addr1" size="20" />
+            <van-switch v-model="yczList.checked" size="20" />
           </template>
         </van-field>
         <van-field name="switch" label="水位计2" input-align="right">
           <template #input>
-            <van-switch   v-model="yczList.WaterLevel_Addr2" size="20" />
+            <van-switch   v-model="yczList.ClearHistorical" size="20" />
           </template>
         </van-field>
 
         <view class="context_base info">传感器通信地址设置</view>
         <van-field
-          v-model="yczList.WaterLevel_Enable1"
+          v-model="yczList.reportingPeriod"
           label="水位计1"
           input-align="right"
           placeholder="水位计1"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WaterLevel_Enable1"
+              v-model="yczList.reportingPeriod"
               default-value="0"
               min="0"
               theme="round"
@@ -107,14 +107,14 @@
         </van-field>
 
         <van-field
-          v-model="yczList.WaterLevel_Enable2"
+          v-model="yczList.reportingPeriod"
           label="水位计2"
           input-align="right"
           placeholder="水位计2"
         >
           <template #input>
             <van-stepper
-              v-model="yczList.WaterLevel_Enable2"
+              v-model="yczList.reportingPeriod"
               default-value="0"
               min="0"
               theme="round"
@@ -132,28 +132,27 @@
   </view>
 </template>
 <script setup>
-import { ref, reactive,onMounted ,toRaw} from "vue";
+import { ref, reactive,onMounted } from "vue";
+import { AllData } from "@/utils/Hexadecimal";
 import { UseGetDataForZiJie, stringToHex} from "@/utils/analysis";
-import { onLoad } from "@dcloudio/uni-app";
-onLoad((option) => {
+onMounted(() => {
   //16进制转换
-  let array=JSON.parse(option.AllData)
-  array.Data_form.forEach((element, index) => {
-    let data = UseGetDataForZiJie(element, array);
+  AllData.Data_form.forEach((element, index) => {
+    let data = UseGetDataForZiJie(element, AllData);
     if (data) {
-      HexadecimalLists = data;
+      HexadecimalLists.array = data;
       data.forEach((i) => {
         Object.assign(yczList, { [i.name]: i.value });
       });
     }
   });
 });
-let HexadecimalLists = reactive({});
-let  yczList = reactive({ checked: true,ClearHistorical:false });
+const HexadecimalLists = reactive({ array: [] });
+const yczList = reactive({ checked: true,ClearHistorical:false });
 function onSubmit() {
   let array1 = "";
   console.log(yczList, "yczList");
-  HexadecimalLists.forEach((i) => {
+  HexadecimalLists.array.forEach((i) => {
     Object.keys(yczList).forEach((n) => {
       if (n === i.name) {
         array1 += stringToHex("" + yczList[n]);
